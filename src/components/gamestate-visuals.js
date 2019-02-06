@@ -1,3 +1,5 @@
+AFRAME.TWEEN = require('@tweenjs/tween.js');
+
 /* globals AFRAME ABLAST THREE */
 AFRAME.registerComponent('gamestate-visuals', {
   schema: {
@@ -128,5 +130,8 @@ AFRAME.registerComponent('gamestate-visuals', {
         self.logo.object3D.rotation.x = Math.PI * 0.6 - logoRotation.x;
       });
     tween.start();
+  },
+  tick: function(time, delta) {
+    AFRAME.TWEEN.update();
   }
 });
